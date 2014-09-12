@@ -1,17 +1,12 @@
 <?php
-
-//path variables setup to see what environment we are in
-$path = getcwd();
-$bits = explode("/", $path);
-
-if($bits[1] == 'YOUR-DEVELOPMENT-ENVIRONMENT-ROOT-FOLDER'){
+if($_SESSION['environment'] == 'YOUR-DEV-ENVIRONMENT-NAME'){
   $config = array(
-    'host'      => 'your-development-environment-database-host',
-    'username'  => 'your-development-environment-database-username',
-    'password'  => 'your-development-environment-database-password',
-    'dbname'    => 'your-development-environment-database-name'
+    'host'      => 'your-dev-environment-database-host',
+    'username'  => 'your-dev-environment-database-username',
+    'password'  => 'your-dev-environment-database-password',
+    'dbname'    => 'your-dev-environment-database-name'
   );
-} else if($bits[1] == 'YOUR-STAGING-ENVIRONMENT-ROOT-FOLDER'){
+} else if($_SESSION['environment'] == 'YOUR-STAGING-ENVIRONMENT-NAME'){
   $config = array(
     'host'      => 'your-staging-environment-database-host',
     'username'  => 'your-staging-environment-database-username',

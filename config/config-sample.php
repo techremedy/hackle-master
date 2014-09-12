@@ -8,7 +8,28 @@
 //set default timezone / This is setup for Pacific
 date_default_timezone_set('America/Los_Angeles');
 
-//set up application path variables
+//path variables setup to see what environment we are in
+$path = getcwd();
+$bits = explode("/", $path);
+
+if($bits[1] == 'YOUR-DEVELOPMENT-ENVIRONMENT-ROOT-FOLDER'){
+  $pathHeadSet = 'FULL-PATH-TO-HACKLE-MASTER-ON-YOUR-DEVELOPMENT-ENVIRONMENT';
+  $developmentSet = TRUE;
+  $environmentSet = 'NAME-THIS-ENVIRONMENT';
+} else if($bits[1] == 'YOUR-STAGING-ENVIRONMENT-ROOT-FOLDER'){
+  $pathHeadSet = 'FULL-PATH-TO-HACKLE-MASTER-ON-YOUR-STAGING-ENVIRONMENT';
+  $developmentSet = TRUE;
+  $environmentSet = 'NAME-THIS-ENVIRONMENT';
+} else {
+  $pathHeadSet = 'FULL-PATH-TO-HACKLE-MASTER-ON-YOUR-PRODUCTION-ENVIRONMENT';
+  $developmentSet = FALSE;
+  $environmentSet = 'NAME-THIS-ENVIRONMENT';
+}
+
+//save path data to session
+$_SESSION['pathHead'] = $pathHead;
+$_SESSION['development'] = $development;
+$_SESSION['environment'] = $environment;
 
 //include additional config files here
 require_once('database.php');
