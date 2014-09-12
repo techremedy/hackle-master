@@ -25,8 +25,13 @@ if(basename($_SERVER['PHP_SELF']) != 'login.php'){
     $authObj->verifyCookie($saddlehackle);
   }
 
-  if(!isset($_SESSION['user'])){
+  if(!isset($_SESSION['user']['username'])){
     header("Location: login.php");
     die();
+  }
+
+  //check if the logged in user is an administrator
+  if($_SESSION['user']['userLevel'] == 0){
+    $isAdmin = true;
   }
 }
