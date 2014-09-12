@@ -1,3 +1,4 @@
 #ignore specific files
 .DS_Store
 config/database.php
+config/config.php
