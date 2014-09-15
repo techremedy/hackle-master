@@ -6,6 +6,25 @@ require_once('init.php');
 $hooks = $materialsObj->getHooks();
 
 //get dubbing inventory
+$dubbing = $materialsObj->getDubbing();
+
+//get hackle inventory
+$hackle = $materialsObj->getHackle();
+
+//get feathers inventory
+$feathers = $materialsObj->getFeathers();
+
+//get thread inventory
+$thread = $materialsObj->getThread();
+
+//get bead inventory
+$beads = $materialsObj->getBeads();
+
+//get hair inventory
+$hair = $materialsObj->getHair();
+
+//get misc inventory
+$misc = $materialsObj->getMisc();
 
 ?>
 
@@ -36,13 +55,13 @@ $hooks = $materialsObj->getHooks();
     <thead>
       <th>ID</th>
       <th>Brand</th>
-      <th>Natural/Synthetic</th>
       <th>Type</th>
+      <th>Natural/Synthetic</th>
       <th>Color</th>
       <th>Qty</th>
     </thead>
     <tbody>
-
+      <?php print($dubbing); ?>
     </tbody>
   </table>
 </div>
@@ -59,7 +78,7 @@ $hooks = $materialsObj->getHooks();
       <th>Qty</th>
     </thead>
     <tbody>
-
+      <?php print($hackle); ?>
     </tbody>
   </table>
 </div>
@@ -70,14 +89,15 @@ $hooks = $materialsObj->getHooks();
     <thead>
       <th>ID</th>
       <th>Brand</th>
-      <th>Bird</th>
-      <th>Feather</th>
+      <th>Model</th>
       <th>Size</th>
       <th>Color</th>
+      <th>Bird</th>
+      <th>Feather</th>
       <th>Qty</th>
     </thead>
     <tbody>
-
+      <?php print($feathers); ?>
     </tbody>
   </table>
 </div>
