@@ -2,6 +2,30 @@
 
 require_once('init.php');
 
+//get hook inventory
+$hooks = $materialsObj->getMaterials('hooks');
+
+//get dubbing inventory
+$dubbing = $materialsObj->getMaterials('dubbing');
+
+//get hackle inventory
+$hackle = $materialsObj->getMaterials('hackle');
+
+//get other feather inventory
+$feathers = $materialsObj->getMaterials('feathers');
+
+//get thread inventory
+$thread = $materialsObj->getMaterials('thread');
+
+//get bead inventory
+$beads = $materialsObj->getMaterials('beads');
+
+//get hair inventory
+$hair = $materialsObj->getMaterials('hair');
+
+//get misc inventory
+$misc = $materialsObj->getMaterials('misc');
+
 ?>
 
 <?php require_once('header.php'); ?>
