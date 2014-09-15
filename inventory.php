@@ -3,28 +3,9 @@
 require_once('init.php');
 
 //get hook inventory
-$hooks = $materialsObj->getMaterials('hooks');
+$hooks = $materialsObj->getHooks();
 
 //get dubbing inventory
-$dubbing = $materialsObj->getMaterials('dubbing');
-
-//get hackle inventory
-$hackle = $materialsObj->getMaterials('hackle');
-
-//get other feather inventory
-$feathers = $materialsObj->getMaterials('feathers');
-
-//get thread inventory
-$thread = $materialsObj->getMaterials('thread');
-
-//get bead inventory
-$beads = $materialsObj->getMaterials('beads');
-
-//get hair inventory
-$hair = $materialsObj->getMaterials('hair');
-
-//get misc inventory
-$misc = $materialsObj->getMaterials('misc');
 
 ?>
 
@@ -39,9 +20,12 @@ $misc = $materialsObj->getMaterials('misc');
       <th>Brand</th>
       <th>Model</th>
       <th>Type</th>
+      <th>Color</th>
+      <th>Material</th>
+      <th>Qty</th>
     </thead>
     <tbody>
-
+      <?php print($hooks); ?>
     </tbody>
   </table>
 </div>
@@ -70,7 +54,7 @@ $misc = $materialsObj->getMaterials('misc');
       <th>ID</th>
       <th>Brand</th>
       <th>Sex</th>
-      <th>Length</th>
+      <th>Size</th>
       <th>Color</th>
       <th>Qty</th>
     </thead>
@@ -122,6 +106,7 @@ $misc = $materialsObj->getMaterials('misc');
       <th>Brand</th>
       <th>Type</th>
       <th>Material</th>
+      <th>Weight</th>
       <th>Size</th>
       <th>Qty</th>
     </thead>
