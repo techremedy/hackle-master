@@ -8,7 +8,7 @@ class Materials {
   }
 
   //Function for adding a material
-  public function addMaterial(){
+  public function addMaterial($form){
 
   }
 
