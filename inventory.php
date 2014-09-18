@@ -36,9 +36,9 @@ $misc = $materialsObj->getMisc($_SESSION['user']['id']);
   <table border="1">
     <thead>
       <th>ID</th>
-      <th>Size</th>
       <th>Brand</th>
       <th>Model</th>
+      <th>Size</th>
       <th>Type</th>
       <th>Color</th>
       <th>Material</th>
