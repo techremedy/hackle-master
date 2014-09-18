@@ -9,7 +9,10 @@ class Materials {
 
   //Function for adding a material
   public function addMaterial($form){
-
+    print('<pre>');
+    var_dump($form);
+    print('</pre>');
+    die();
   }
 
   //Function for editing a material
@@ -51,9 +54,9 @@ class Materials {
         $output .= '
           <tr>
             <td>'.$id.'</td>
-            <td>'.$size.'</td>
             <td>'.$brand.'</td>
             <td>'.$model.'</td>
+            <td>'.$size.'</td>
             <td>'.$type.'</td>
             <td>'.$color.'</td>
             <td>'.$material.'</td>
@@ -373,6 +376,63 @@ class Materials {
     }
 
     return($output);
+  }
+
+  //Function for getting the right add material form
+  public function getAddMaterialForm($category){
+    $output = '';
+
+    if($category == 1){
+      //hooks form
+      $form = '
+        <div>
+          <label>Brand</label>
+          <input type="text" name="brand" placeholder="Enter Brand...">
+        </div>
+        <div>
+          <label>Model</label>
+          <input type="text" name="model" placeholder="Enter Model...">
+        </div>
+        <div>
+          <label>Size</label>
+          <input type="text" name="size" placeholder="Enter Size...">
+        </div>
+        <div>
+          <label>Type</label>
+          <input type="text" name="type" placeholder="Enter Type...">
+        </div>
+        <div>
+          <label>Color</label>
+          <input type="text" name="color" placeholder="Enter Color...">
+        </div>
+        <div>
+          <label>Material</label>
+          <input type="text" name="material" placeholder="Enter Material...">
+        </div>
+        <div>
+          <label>Quantity on Hand</label>
+          <input type="text" name="qty" placeholder="Enter Quantity on Hand...">
+        </div>
+      ';
+    } elseif($category == 2){
+
+    } elseif($category == 3){
+
+    } elseif($category == 4){
+
+    } elseif($category == 5){
+
+    } elseif($category == 6){
+
+    } elseif($category == 7){
+
+    } elseif($category == 8){
+
+    } else {
+
+    }
+
+    return($form);
   }
 
   //Function for listing materials
