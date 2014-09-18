@@ -9,10 +9,20 @@ class Materials {
 
   //Function for adding a material
   public function addMaterial($form){
-    print('<pre>');
-    var_dump($form);
-    print('</pre>');
-    die();
+    $columns = '';
+    $values = '';
+    $query_params = array();
+
+    //loop through $form array to pull out input names
+    foreach(array_keys($form) as $key){
+      $columns .= $key.',';
+      $values .= ':'.$key.',';
+    }
+    //strip final comma out of $columns list
+    $columns = rtrim($columns, ",");
+    $values = rtrim($values, ",");
+
+    $query = 'INSERT INTO inventory('.$columns.')VALUES('.$values.')';
   }
 
   //Function for editing a material
