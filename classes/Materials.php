@@ -11,18 +11,34 @@ class Materials {
   public function addMaterial($form){
     $columns = '';
     $values = '';
-    $query_params = array();
+    $query_params_values = '';
 
     //loop through $form array to pull out input names
     foreach(array_keys($form) as $key){
       $columns .= $key.',';
       $values .= ':'.$key.',';
+      $query_params_values .= '
+        ":'.$key.'" => $form["'.$key.'"],
+      ';
     }
-    //strip final comma out of $columns list
+
+    //strip final comma out of $columns, $values, and query_params lists
     $columns = rtrim($columns, ",");
     $values = rtrim($values, ",");
+    
+
+    print($query_params_values);
+    die();
 
     $query = 'INSERT INTO inventory('.$columns.')VALUES('.$values.')';
+    $query_params = array(
+      $query_params_values
+    );
+
+    print('<pre>');
+    var_dump($query_params);
+    print('</pre>');
+    die();
   }
 
   //Function for editing a material
