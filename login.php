@@ -1,6 +1,7 @@
 <?php 
   
   require_once('init.php');
+
   // Start up the session if it hasn't already been started
   if(!isset($_SESSION)){ 
     session_start();
@@ -10,9 +11,7 @@
   if(!empty($_SESSION['user'])) { 
     // If they are not, we redirect them to the login page. 
     header("Location: index.php"); 
-     
-    // Kill the script while redirecting
-    die("Redirecting to index.php"); 
+    die(); 
   }
 
   $messages = array();
