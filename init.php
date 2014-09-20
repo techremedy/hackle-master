@@ -1,5 +1,17 @@
 <?php
 
+//check for config file
+if(!file_exists('config/config.php')){
+  header('Location: setupConfig.php');
+  die();
+}
+
+//check for database file
+if(!file_exists('config/database.php')){
+  header('Location: setupDatabase.php');
+  die();
+}
+
 //start users session
 session_start();
 
