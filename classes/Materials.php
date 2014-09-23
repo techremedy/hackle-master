@@ -25,9 +25,13 @@ class Materials {
     //strip final comma out of $columns, $values, and query_params lists
     $columns = rtrim($columns, ",");
     $values = rtrim($values, ",");
-    
+    $query_params_trimmed = rtrim($query_params_values, ",");
 
-    print($query_params_values);
+    $string_check = strcmp($query_params_values, $query_params_trimmed);
+
+    print('<pre>');
+    var_dump($string_check);
+    print('</pre>');
     die();
 
     $query = 'INSERT INTO inventory('.$columns.')VALUES('.$values.')';
@@ -35,10 +39,6 @@ class Materials {
       $query_params_values
     );
 
-    print('<pre>');
-    var_dump($query_params);
-    print('</pre>');
-    die();
   }
 
   //Function for editing a material
