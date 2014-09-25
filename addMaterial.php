@@ -1,6 +1,13 @@
 <?php
 
 require_once('init.php');
+
+//Form handler
+if(isset($_POST['submitted'])){
+  $form = $_POST;
+  $addMaterial = $materialsObj->addMaterial($form);
+}
+
 $category = $_GET['cat'];
 
 if(!is_numeric($category)){
@@ -11,12 +18,6 @@ if(!is_numeric($category)){
 
 //fetch appropriate form for category
 $form = $materialsObj->getAddMaterialForm($category);
-
-//Form handler
-if(isset($_POST['submitted'])){
-  $form = $_POST;
-  $addMaterial = $materialsObj->addMaterial($form);
-}
 
 ?>
 

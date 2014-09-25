@@ -11,34 +11,30 @@ class Materials {
   public function addMaterial($form){
     $columns = '';
     $values = '';
-    $query_params_values = '';
+    $query_params = array();
 
     //loop through $form array to pull out input names
     foreach(array_keys($form) as $key){
       $columns .= $key.',';
       $values .= ':'.$key.',';
-      $query_params_values .= '
-        ":'.$key.'" => $form["'.$key.'"],
-      ';
+      $query_params[$key] = $form[$key];
     }
 
-    //strip final comma out of $columns, $values, and query_params lists
+    //strip final comma out of $columns, $values
     $columns = rtrim($columns, ",");
     $values = rtrim($values, ",");
-    $query_params_trimmed = rtrim($query_params_values, ",");
-
-    $string_check = strcmp($query_params_values, $query_params_trimmed);
-
-    print('<pre>');
-    var_dump($string_check);
-    print('</pre>');
-    die();
 
     $query = 'INSERT INTO inventory('.$columns.')VALUES('.$values.')';
-    $query_params = array(
-      $query_params_values
-    );
 
+    try {
+      $stmt = $this->db->prepare($query);
+
+      $result = $stmt->execute($query_params);
+      $inserted = TRUE;
+    } catch(PDOException $ex) {
+      die('Failed to run query!'.$ex->getMessage());
+    }
+    return $inserted;
   }
 
   //Function for editing a material
