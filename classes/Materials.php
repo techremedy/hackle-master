@@ -24,7 +24,7 @@ class Materials {
     $columns = rtrim($columns, ",");
     $values = rtrim($values, ",");
 
-    $query = 'INSERT INTO inventory('.$columns.')VALUES('.$values.')';
+    $query = 'INSERT INTO inventory('.$columns.',active)VALUES('.$values.',1)';
 
     try {
       $stmt = $this->db->prepare($query);
