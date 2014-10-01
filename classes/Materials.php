@@ -47,6 +47,88 @@ class Materials {
 
   }
 
+  //Function for getting all inventory
+  public function getInventory($user){
+    $output = '';
+
+    $query = '
+      SELECT
+        a.id,
+        a.brand,
+        a.model,
+        a.size,
+        a.type,
+        a.description,
+        a.color,
+        a.sex,
+        a.bird,
+        a.material,
+        a.animal,
+        a.part,
+        a.qty,
+        b.*
+      FROM
+        inventory a
+      LEFT JOIN
+        `inventory-categories` b
+      ON
+        a.category = b.id
+      WHERE
+        a.active = :active
+      AND
+        a.user = :user
+    ';
+    $query_params = array(
+      ':active' => 1,
+      ':user' => $user
+    );
+
+    try {
+      $stmt = $this->db->prepare($query);
+      $result = $stmt->execute($query_params);
+
+      while($row = $stmt->fetch()){
+        $id = $row['id'];
+        $category = $row['category-name'];
+        $brand = $row['brand'];
+        $model = $row['model'];
+        $size = $row['size'];
+        $type = $row['type'];
+        $description = $row['description'];
+        $color = $row['color'];
+        $sex = $row['sex'];
+        $bird = $row['bird'];
+        $material = $row['material'];
+        $animal = $row['animal'];
+        $part = $row['part'];
+        $qty = $row['qty'];
+
+        $output .= '
+          <tr>
+            <td>'.$id.'</td>
+            <td>'.$brand.'</td>
+            <td>'.$model.'</td>
+            <td>'.$size.'</td>
+            <td>'.$type.'</td>
+            <td>'.$description.'</td>
+            <td>'.$color.'</td>
+            <td>'.$sex.'</td>
+            <td>'.$bird.'</td>
+            <td>'.$material.'</td>
+            <td>'.$animal.'</td>
+            <td>'.$part.'</td>
+            <td>'.$qty.'</td>
+          </tr>
+        ';
+      }
+
+    } catch(PDOException $ex) {
+      die('Failed to run query!');
+    }
+
+    return($output);
+  }
+
   //Function for getting hook inventory
   public function getHooks($user){
     $output = '';
