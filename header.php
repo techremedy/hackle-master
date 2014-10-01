@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HackleMaster - Fly Tying Log and Material Inventory</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/hackle-master.css">
   </head>
   <body>
