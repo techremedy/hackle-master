@@ -6,7 +6,9 @@
 <script>
 $(document).ready(function() {
   $('#inventoryTable').dataTable( {
-      "info": false
+      "info": false,
+      "lengthChange": false,
+      "paging": false
   });
 });
 

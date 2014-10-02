@@ -8,8 +8,6 @@ if(isset($_POST['submitted'])){
   $addMaterial = $materialsObj->addMaterial($form);
 }
 
-$category = $_GET['cat'];
-
 if(!is_numeric($category)){
   //redirect non-numerics back to index
   header("Location: index.php");
