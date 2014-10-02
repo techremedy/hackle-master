@@ -118,6 +118,7 @@ class Materials {
             <td>'.$animal.'</td>
             <td>'.$part.'</td>
             <td>'.$qty.'</td>
+            <td><a href="editItem.php?id='.$id.'">Edit</a> | <a href="deleteItem.php?id='.$id.'">Delete</a></td>
           </tr>
         ';
       }

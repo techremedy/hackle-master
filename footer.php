@@ -7,7 +7,8 @@
 $(document).ready(function() {
   $('#inventoryTable').dataTable( {
       "info": false,
-      "lengthChange": false
+      "lengthChange": false,
+      "paging": false
   });
 });
 
