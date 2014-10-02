@@ -10,7 +10,7 @@ $inventory = $materialsObj->getInventory($_SESSION['user']['id']);
 <?php require_once('header.php'); ?>
 
 <div id="inventory">
-  <h2>Inventory [Add New Item]</h2>
+  <h2>Inventory [<a href="addMaterial.php">Add New Item</a>]</h2>
   <table id="inventoryTable" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
